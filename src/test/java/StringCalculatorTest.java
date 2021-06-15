@@ -10,9 +10,4 @@ public class StringCalculatorTest {
         int value = stringCalculator.add("");
         assertEquals(0, value);
     }
-
-    @Test
-    void it_should_not_fail() {
-        assertTrue(true);
-    }
 }
