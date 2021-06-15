@@ -6,19 +6,14 @@ public class StringCalculator {
     public int add(String input) throws NegativeNumberException {
         if (input.isEmpty()) return 0;
 
-        String delimiters = "[,\n]";
-        if (input.startsWith("//")) {
-            delimiters = input.substring(2,3);
-            input = input.substring(4);
-        }
-        String[] numbers = input.split(delimiters);
+        String[] numbers = parse(input);
 
         int sum = 0;
         List<Integer> negatives = new ArrayList<>();
-        for (int i=0; i<numbers.length; ++i) {
-            int number = Integer.parseInt(numbers[i]);
+        for (String s : numbers) {
+            int number = Integer.parseInt(s);
 
-            if(number < 0) {
+            if (number < 0) {
                 negatives.add(number);
             }
             sum += number;
@@ -29,5 +24,15 @@ public class StringCalculator {
         }
 
         return sum;
+    }
+
+    private String[] parse(String input) {
+        String delimiters = "[,\n]";
+        if (input.startsWith("//")) {
+            delimiters = input.substring(2,3);
+            input = input.substring(4);
+        }
+        String[] numbers = input.split(delimiters);
+        return numbers;
     }
 }
