@@ -2,12 +2,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ThingTest {
+public class StringCalculatorTest {
 
     @Test
     void fail() {
-        Thing thing = new Thing();
-        String value = thing.callForAction();
+        StringCalculator stringCalculator = new StringCalculator();
+        String value = stringCalculator.callForAction();
         assertEquals("Food", value);
     }
 
