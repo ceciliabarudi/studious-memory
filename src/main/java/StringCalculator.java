@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringCalculator {
 
     public int add(String input) throws NegativeNumberException {
@@ -11,12 +14,18 @@ public class StringCalculator {
         String[] numbers = input.split(delimiters);
 
         int sum = 0;
+        List<Integer> negatives = new ArrayList<>();
         for (int i=0; i<numbers.length; ++i) {
             int number = Integer.parseInt(numbers[i]);
+
             if(number < 0) {
-                throw new NegativeNumberException(number);
+                negatives.add(number);
             }
             sum += number;
+        }
+
+        if(!negatives.isEmpty()) {
+            throw new NegativeNumberException(negatives);
         }
 
         return sum;

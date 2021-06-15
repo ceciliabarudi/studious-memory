@@ -54,6 +54,14 @@ public class StringCalculatorTest {
         NegativeNumberException exception = assertThrows(NegativeNumberException.class,
                 () -> stringCalculator.add("2,-3,4"));
 
-        assertEquals("negatives not allowed: -3", exception.getMessage());
+        assertEquals("negatives not allowed: [-3]", exception.getMessage());
+    }
+
+    @Test
+    void should_display_all_negative_numbers_when_exception_thrown() {
+        NegativeNumberException exception = assertThrows(NegativeNumberException.class,
+                () -> stringCalculator.add("2,-3,-4,5,-6"));
+
+        assertEquals("negatives not allowed: [-3, -4, -6]", exception.getMessage());
     }
 }
