@@ -10,4 +10,11 @@ public class StringCalculatorTest {
         int value = stringCalculator.add("");
         assertEquals(0, value);
     }
+
+    @Test
+    void should_return_1_for_1() {
+        StringCalculator stringCalculator = new StringCalculator();
+        int value = stringCalculator.add("1");
+        assertEquals(1, value);
+    }
 }
