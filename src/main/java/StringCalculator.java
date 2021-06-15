@@ -1,6 +1,6 @@
 public class StringCalculator {
 
-    public int add(String input) {
+    public int add(String input) throws NegativeNumberException {
         if (input.isEmpty()) return 0;
 
         String delimiters = "[,\n]";
@@ -12,7 +12,11 @@ public class StringCalculator {
 
         int sum = 0;
         for (int i=0; i<numbers.length; ++i) {
-            sum += Integer.parseInt(numbers[i]);
+            int number = Integer.parseInt(numbers[i]);
+            if(number < 0) {
+                throw new NegativeNumberException();
+            }
+            sum += number;
         }
 
         return sum;
