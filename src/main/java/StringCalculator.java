@@ -14,7 +14,7 @@ public class StringCalculator {
         for (int i=0; i<numbers.length; ++i) {
             int number = Integer.parseInt(numbers[i]);
             if(number < 0) {
-                throw new NegativeNumberException();
+                throw new NegativeNumberException(number);
             }
             sum += number;
         }

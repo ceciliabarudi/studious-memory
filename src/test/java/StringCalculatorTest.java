@@ -48,4 +48,12 @@ public class StringCalculatorTest {
     void throws_exception_with_negative_numbers() {
         assertThrows(NegativeNumberException.class, () -> stringCalculator.add("2,-3,4"));
     }
+
+    @Test
+    void should_display_negative_number_when_exception_thrown() {
+        NegativeNumberException exception = assertThrows(NegativeNumberException.class,
+                () -> stringCalculator.add("2,-3,4"));
+
+        assertEquals("negatives not allowed: -3", exception.getMessage());
+    }
 }
