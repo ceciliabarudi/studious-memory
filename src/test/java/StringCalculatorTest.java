@@ -18,4 +18,10 @@ public class StringCalculatorTest {
         assertEquals(5, stringCalculator.add("5"));
         assertEquals(199, stringCalculator.add("199"));
     }
+
+    @Test
+    void should_return_correct_value_for_two_parameters() {
+        StringCalculator stringCalculator = new StringCalculator();
+        assertEquals(3, stringCalculator.add("1,2"));
+    }
 }
