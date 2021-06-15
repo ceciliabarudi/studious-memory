@@ -1,6 +1,6 @@
 public class StringCalculator {
 
-    public String callForAction() {
-        return "Dog";
+    public int add(String numbers) {
+        return 0;
     }
 }
