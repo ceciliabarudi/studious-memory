@@ -12,9 +12,10 @@ public class StringCalculatorTest {
     }
 
     @Test
-    void should_return_1_for_1() {
+    void should_return_correct_value_for_single_parameter() {
         StringCalculator stringCalculator = new StringCalculator();
-        int value = stringCalculator.add("1");
-        assertEquals(1, value);
+        assertEquals(1, stringCalculator.add("1"));
+        assertEquals(5, stringCalculator.add("5"));
+        assertEquals(199, stringCalculator.add("199"));
     }
 }
